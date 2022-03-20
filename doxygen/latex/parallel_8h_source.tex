@@ -1,0 +1,28 @@
+\hypertarget{parallel_8h_source}{}\doxysection{parallel.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}opt\_area.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}SingletonGenerator.h"{}}}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{classparallel}{parallel}} :}
+\DoxyCodeLine{6     \textcolor{keyword}{public} \mbox{\hyperlink{classopt__area}{opt\_area}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     std::vector<double> limits\_left\{\};}
+\DoxyCodeLine{12     std::vector<double> limits\_right\{\};}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14  \textcolor{comment}{//   parallel(std::vector<double>, std::vector<double>);}}
+\DoxyCodeLine{16 \textcolor{comment}{}    \textcolor{keywordtype}{void} \mbox{\hyperlink{classparallel_a6cb26598c39d9daf1893a5b9591d5e59}{clear\_limits}}();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{classparallel_a74f8d62b344022e8c5e4df4f29c9e23a}{add\_limits}}(\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double});}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} \mbox{\hyperlink{classparallel_a04aedb8e0fbf7e183ff5cf12cc85d47a}{get\_dim}}();}
+\DoxyCodeLine{22     std::pair<double, double> \mbox{\hyperlink{classparallel_ad23514ae5186c56b140cb76f86c58c89}{get\_lim}}(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{25     std::vector<double> \mbox{\hyperlink{classparallel_a6297e0b009104e908822097c14e8941c}{get\_point}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classparallel_a31c54df7bd8f03613d40bf401a157170}{in\_area}}(std::vector<double>) \textcolor{keyword}{override};}
+\DoxyCodeLine{28     std::pair<std::vector<double>, std::vector<bool>> \mbox{\hyperlink{classparallel_a806e48a3b4edd78971253eaba1ea0612}{corret\_arg}}(std::vector<double>) \textcolor{keyword}{override};}
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32 \mbox{\hyperlink{classparallel}{parallel}} cross\_area(\mbox{\hyperlink{classparallel}{parallel}}\&, std::vector<double>, \textcolor{keywordtype}{double});}
+
+\end{DoxyCode}

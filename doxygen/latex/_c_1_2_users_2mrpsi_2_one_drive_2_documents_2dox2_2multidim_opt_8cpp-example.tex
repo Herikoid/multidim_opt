@@ -1,0 +1,124 @@
+\hypertarget{_c_1_2_users_2mrpsi_2_one_drive_2_documents_2dox2_2multidim_opt_8cpp-example}{}\doxysection{C\+:/\+Users/mrpsi/\+One\+Drive/\+Documents/dox2/multidim\+\_\+opt.\+cpp}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}fletcher\_reeves.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}x\_crit.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}f\_crit.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}grad\_crit.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}iter\_ctrit.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}sq\_sum.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}f\_3dim.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}f\_4dim.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}parallel.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}random\_search.h"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::mt19937 SingletonGenerator::mersennetwister;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{classstop__crit}{stop\_crit}}* crit = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{    \mbox{\hyperlink{classopt__function}{opt\_function}}* f = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{    \mbox{\hyperlink{classparallel}{parallel}} area;}
+\DoxyCodeLine{    \mbox{\hyperlink{classopt__method}{opt\_method}}* om = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    std::vector<double> start\{\};}
+\DoxyCodeLine{    std::vector<double> res;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} input, input1;}
+\DoxyCodeLine{    \textcolor{keywordtype}{double} right, left;}
+\DoxyCodeLine{    \textcolor{keywordflow}{try}}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Chose function:"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 1 for f(x, y) = x\string^2 + y\string^2"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 2 for f(x, y, z) = x\string^2 + y\string^2 + z\string^3"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 3 for f(x, y, z, t) = x\string^2 + y\string^2 + z\string^3 + t\string^4"{}} << std::endl;}
+\DoxyCodeLine{        std::cin >> input1;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (input1 < 1 || input1 > 3) \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}type form 1 to 3"{}});}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{switch} (input1)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classsq__sum}{sq\_sum}};}
+\DoxyCodeLine{            \textcolor{keywordflow}{break};}
+\DoxyCodeLine{        \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classf__3dim}{f\_3dim}};}
+\DoxyCodeLine{            \textcolor{keywordflow}{break};}
+\DoxyCodeLine{        \textcolor{keywordflow}{default}: }
+\DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classf__4dim}{f\_4dim}};}
+\DoxyCodeLine{            \textcolor{keywordflow}{break};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        std::cout << input1 + 1 << \textcolor{stringliteral}{"{}d area:"{}} << std::endl;}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < input1 + 1; ++i) \{}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}enter lelft border: "{}} << std::endl;}
+\DoxyCodeLine{            std::cin >> left;}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}enter right border: "{}} << std::endl;}
+\DoxyCodeLine{            std::cin >> right;}
+\DoxyCodeLine{            area.\mbox{\hyperlink{classparallel_a74f8d62b344022e8c5e4df4f29c9e23a}{add\_limits}}(left, right);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Chose method:"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 1 for random search"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 2 for fletcher reeves"{}} << std::endl;}
+\DoxyCodeLine{        std::cin >> input;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (input < 1 || input > 2) \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}type 1 or 2"{}});}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (input == 1) \{}
+\DoxyCodeLine{            crit = \textcolor{keyword}{new} \mbox{\hyperlink{classiter__ctrit}{iter\_ctrit}};}
+\DoxyCodeLine{            om = \textcolor{keyword}{new} \mbox{\hyperlink{classrandom__search}{random\_search}}(*f, *crit, area);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}Chose stop criteria:"{}} << std::endl;}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}type 1 for x criteria"{}} << std::endl;}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}type 2 for f criteria"{}} << std::endl;}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"{}type 3 for gradient criteria"{}} << std::endl;}
+\DoxyCodeLine{            std::cin >> input;}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (input < 1 || input > 3) \{}
+\DoxyCodeLine{                \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}type form 1 to 3"{}});}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            \textcolor{keywordflow}{switch} (input)}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{                crit = \textcolor{keyword}{new} \mbox{\hyperlink{classx__crit}{x\_crit}};}
+\DoxyCodeLine{                \textcolor{keywordflow}{break};}
+\DoxyCodeLine{            \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{                crit = \textcolor{keyword}{new} \mbox{\hyperlink{classf__crit}{f\_crit}};}
+\DoxyCodeLine{                \textcolor{keywordflow}{break};}
+\DoxyCodeLine{            \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{                crit = \textcolor{keyword}{new} \mbox{\hyperlink{classgrad__crit}{grad\_crit}};}
+\DoxyCodeLine{                \textcolor{keywordflow}{break};}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            om = \textcolor{keyword}{new} \mbox{\hyperlink{classfletcher__reeves}{fletcher\_reeves}}(*f, *crit, area);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}enter start point: "{}} << std::endl;}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < input1 + 1; ++i) \{}
+\DoxyCodeLine{            std::cin >> left;}
+\DoxyCodeLine{            start.push\_back(left);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        }
+\DoxyCodeLine{}
+\DoxyCodeLine{        res = om-\/>\mbox{\hyperlink{classopt__method_abecd5c636249a4ff04fe5cf14d0cd1f8}{calc}}(start);}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Result:"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}x = ("{}};}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < res.size() -\/ 1; ++i) \{}
+\DoxyCodeLine{            std::cout << res[i] << \textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        std::cout << res.back() << \textcolor{stringliteral}{"{}), iter = "{}} << om-\/>\mbox{\hyperlink{classopt__method_af85d4141daa0687ac465a897c2c26efa}{get\_iter}}() << std::endl; }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception\& e)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}There was an exception: "{}} << e.what() << std::endl;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keyword}{delete} f;}
+\DoxyCodeLine{    \textcolor{keyword}{delete} crit;}
+\DoxyCodeLine{    \textcolor{keyword}{delete} om;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

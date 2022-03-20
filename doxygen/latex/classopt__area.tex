@@ -1,0 +1,63 @@
+\hypertarget{classopt__area}{}\doxysection{opt\+\_\+area Class Reference}
+\label{classopt__area}\index{opt\_area@{opt\_area}}
+
+
+Абстрактный класс с областью определения функции  
+
+
+
+
+{\ttfamily \#include $<$opt\+\_\+area.\+h$>$}
+
+Inheritance diagram for opt\+\_\+area\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classopt__area}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classopt__area_ae2a72dfa59745f445e2a0ea5defd5284}{in\+\_\+area}} (std\+::vector$<$ double $>$)=0
+\begin{DoxyCompactList}\small\item\em Проверка, лежит ли точка в области \end{DoxyCompactList}\item 
+virtual std\+::pair$<$ std\+::vector$<$ double $>$, std\+::vector$<$ bool $>$ $>$ \mbox{\hyperlink{classopt__area_ad3de2f0a6f5e18a60c4295cd42860a77}{corret\+\_\+arg}} (std\+::vector$<$ double $>$)=0
+\begin{DoxyCompactList}\small\item\em Корректировка координат точки, если она выходит за границы области \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Абстрактный класс с областью определения функции 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classopt__area_ad3de2f0a6f5e18a60c4295cd42860a77}\label{classopt__area_ad3de2f0a6f5e18a60c4295cd42860a77}} 
+\index{opt\_area@{opt\_area}!corret\_arg@{corret\_arg}}
+\index{corret\_arg@{corret\_arg}!opt\_area@{opt\_area}}
+\doxysubsubsection{\texorpdfstring{corret\_arg()}{corret\_arg()}}
+{\footnotesize\ttfamily virtual std\+::pair$<$ std\+::vector$<$ double $>$, std\+::vector$<$ bool $>$ $>$ opt\+\_\+area\+::corret\+\_\+arg (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Корректировка координат точки, если она выходит за границы области 
+
+
+
+Implemented in \mbox{\hyperlink{classparallel_a806e48a3b4edd78971253eaba1ea0612}{parallel}}.
+
+\mbox{\Hypertarget{classopt__area_ae2a72dfa59745f445e2a0ea5defd5284}\label{classopt__area_ae2a72dfa59745f445e2a0ea5defd5284}} 
+\index{opt\_area@{opt\_area}!in\_area@{in\_area}}
+\index{in\_area@{in\_area}!opt\_area@{opt\_area}}
+\doxysubsubsection{\texorpdfstring{in\_area()}{in\_area()}}
+{\footnotesize\ttfamily virtual bool opt\+\_\+area\+::in\+\_\+area (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Проверка, лежит ли точка в области 
+
+
+
+Implemented in \mbox{\hyperlink{classparallel_a31c54df7bd8f03613d40bf401a157170}{parallel}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+opt\+\_\+area.\+h\end{DoxyCompactItemize}

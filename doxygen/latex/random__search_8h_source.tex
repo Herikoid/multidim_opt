@@ -1,0 +1,22 @@
+\hypertarget{random__search_8h_source}{}\doxysection{random\+\_\+search.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}opt\_method.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}parallel.h"{}}}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{classrandom__search}{random\_search}} :}
+\DoxyCodeLine{6     \textcolor{keyword}{public} \mbox{\hyperlink{classopt__method}{opt\_method}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     \textcolor{keywordtype}{double} delta;}
+\DoxyCodeLine{12     \textcolor{keywordtype}{double} p;}
+\DoxyCodeLine{14     \mbox{\hyperlink{classparallel}{parallel}}* par = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{classrandom__search}{random\_search}}(\mbox{\hyperlink{classopt__function}{opt\_function}}\& f, \mbox{\hyperlink{classstop__crit}{stop\_crit}}\& s, \mbox{\hyperlink{classparallel}{parallel}}\& a, \textcolor{keywordtype}{double} delta = 1e-\/7, \textcolor{keywordtype}{double} p\_ = 0.5);}
+\DoxyCodeLine{17     \textcolor{keyword}{virtual} std::vector<double> \mbox{\hyperlink{classrandom__search_ae7a57c3ad71d79636724f4e92515d341}{calc}}(std::vector<double>) \textcolor{keyword}{override};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{classrandom__search}{\string~random\_search}}();}
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+
+\end{DoxyCode}

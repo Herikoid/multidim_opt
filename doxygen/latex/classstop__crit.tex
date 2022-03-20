@@ -1,0 +1,66 @@
+\hypertarget{classstop__crit}{}\doxysection{stop\+\_\+crit Class Reference}
+\label{classstop__crit}\index{stop\_crit@{stop\_crit}}
+
+
+Абстрактный класс криетрия остановки  
+
+
+
+
+{\ttfamily \#include $<$stop\+\_\+crit.\+h$>$}
+
+Inheritance diagram for stop\+\_\+crit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstop__crit}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classstop__crit_a43ca59fa5babe29717dba6f36f33c2e7}\label{classstop__crit_a43ca59fa5babe29717dba6f36f33c2e7}} 
+void {\bfseries set\+\_\+maxiter} (long int)
+\begin{DoxyCompactList}\small\item\em Задать максимальное число итераций \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstop__crit_abbc91ca741410e3428757e8784c4a7fe}\label{classstop__crit_abbc91ca741410e3428757e8784c4a7fe}} 
+void {\bfseries set\+\_\+eps} (double)
+\begin{DoxyCompactList}\small\item\em Задать точность \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classstop__crit_a65606b80906ef608baafa15df48f93d7}{check}} (\mbox{\hyperlink{structsup__struct}{sup\+\_\+struct}} \&)=0
+\begin{DoxyCompactList}\small\item\em Проверить, удовлетворяет ли текущий шаг алгоритма критерию \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classstop__crit_a031237e27faa6e088f68a58ba853193c}\label{classstop__crit_a031237e27faa6e088f68a58ba853193c}} 
+long int {\bfseries max\+\_\+iter} = 10000
+\begin{DoxyCompactList}\small\item\em максимальное число итераций алгоритма \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstop__crit_a27a55786c3a72ea74db1bf7091281061}\label{classstop__crit_a27a55786c3a72ea74db1bf7091281061}} 
+double {\bfseries eps} = 1e-\/3
+\begin{DoxyCompactList}\small\item\em Точность \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Абстрактный класс криетрия остановки \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2mrpsi_2_one_drive_2_documents_2dox2_2multidim_opt_8cpp-example}{C\+:/\+Users/mrpsi/\+One\+Drive/\+Documents/dox2/multidim\+\_\+opt.\+cpp}}.\end{Desc}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstop__crit_a65606b80906ef608baafa15df48f93d7}\label{classstop__crit_a65606b80906ef608baafa15df48f93d7}} 
+\index{stop\_crit@{stop\_crit}!check@{check}}
+\index{check@{check}!stop\_crit@{stop\_crit}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily virtual bool stop\+\_\+crit\+::check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsup__struct}{sup\+\_\+struct}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Проверить, удовлетворяет ли текущий шаг алгоритма критерию 
+
+
+
+Implemented in \mbox{\hyperlink{classf__crit_afde82241f12e5fa95b555adaf4e1bf59}{f\+\_\+crit}}, \mbox{\hyperlink{classgrad__crit_ac02843a3a954d7e5e0df2b527a755bee}{grad\+\_\+crit}}, \mbox{\hyperlink{classiter__ctrit_a676d1215bcd5b8c4c956213f15cfe602}{iter\+\_\+ctrit}}, and \mbox{\hyperlink{classx__crit_a56e3e5b4020c4762d90dda6edb48d553}{x\+\_\+crit}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stop\+\_\+crit.\+h\item 
+stop\+\_\+crit.\+cpp\end{DoxyCompactItemize}

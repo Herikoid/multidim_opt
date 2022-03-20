@@ -1,0 +1,78 @@
+\hypertarget{classopt__method}{}\doxysection{opt\+\_\+method Class Reference}
+\label{classopt__method}\index{opt\_method@{opt\_method}}
+
+
+Абстрактный класс методов оптимизации  
+
+
+
+
+{\ttfamily \#include $<$opt\+\_\+method.\+h$>$}
+
+Inheritance diagram for opt\+\_\+method\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classopt__method}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classopt__method_aa5fb40cc98ed75ab423b55288400740f}\label{classopt__method_aa5fb40cc98ed75ab423b55288400740f}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries get\+\_\+x} ()
+\begin{DoxyCompactList}\small\item\em Получить x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopt__method_af85d4141daa0687ac465a897c2c26efa}\label{classopt__method_af85d4141daa0687ac465a897c2c26efa}} 
+double {\bfseries get\+\_\+iter} ()
+\begin{DoxyCompactList}\small\item\em Получить текущую итерацию \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ double $>$ \mbox{\hyperlink{classopt__method_abecd5c636249a4ff04fe5cf14d0cd1f8}{calc}} (std\+::vector$<$ double $>$)=0
+\begin{DoxyCompactList}\small\item\em Найти оптимальное значение аргумента \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classopt__method_a7c1141b9dfd198e6098f470c423a10d8}\label{classopt__method_a7c1141b9dfd198e6098f470c423a10d8}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries x}
+\begin{DoxyCompactList}\small\item\em хначения x на протяжении работы алгоритма \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopt__method_a3f17e6312f613b14398790b6943d036d}\label{classopt__method_a3f17e6312f613b14398790b6943d036d}} 
+long int {\bfseries iter} = 0
+\begin{DoxyCompactList}\small\item\em текущее число итераций алгоритма \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopt__method_ad096892592a05ce1e27aac1cd3df3aac}\label{classopt__method_ad096892592a05ce1e27aac1cd3df3aac}} 
+\mbox{\hyperlink{classopt__function}{opt\+\_\+function}} $\ast$ {\bfseries func} = nullptr
+\begin{DoxyCompactList}\small\item\em функция для оптимизации \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopt__method_ae49efcdc57c66c66c6e465866057b612}\label{classopt__method_ae49efcdc57c66c66c6e465866057b612}} 
+\mbox{\hyperlink{classstop__crit}{stop\+\_\+crit}} $\ast$ {\bfseries stop} = nullptr
+\begin{DoxyCompactList}\small\item\em критерий остановки \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classopt__method_a491024339172bbca253755f984dc5f14}\label{classopt__method_a491024339172bbca253755f984dc5f14}} 
+\mbox{\hyperlink{classopt__area}{opt\+\_\+area}} $\ast$ {\bfseries area} = nullptr
+\begin{DoxyCompactList}\small\item\em область определения \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Абстрактный класс методов оптимизации \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2mrpsi_2_one_drive_2_documents_2dox2_2multidim_opt_8cpp-example}{C\+:/\+Users/mrpsi/\+One\+Drive/\+Documents/dox2/multidim\+\_\+opt.\+cpp}}.\end{Desc}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classopt__method_abecd5c636249a4ff04fe5cf14d0cd1f8}\label{classopt__method_abecd5c636249a4ff04fe5cf14d0cd1f8}} 
+\index{opt\_method@{opt\_method}!calc@{calc}}
+\index{calc@{calc}!opt\_method@{opt\_method}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ double $>$ opt\+\_\+method\+::calc (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Найти оптимальное значение аргумента 
+
+
+
+Implemented in \mbox{\hyperlink{classfletcher__reeves_ada3c50511bdb355b2980002d0d73e35a}{fletcher\+\_\+reeves}}, and \mbox{\hyperlink{classrandom__search_ae7a57c3ad71d79636724f4e92515d341}{random\+\_\+search}}.
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_c_1_2_users_2mrpsi_2_one_drive_2_documents_2dox2_2multidim_opt_8cpp-example}{C\+:/\+Users/mrpsi/\+One\+Drive/\+Documents/dox2/multidim\+\_\+opt.\+cpp}}.\end{Desc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+opt\+\_\+method.\+h\item 
+opt\+\_\+method.\+cpp\end{DoxyCompactItemize}

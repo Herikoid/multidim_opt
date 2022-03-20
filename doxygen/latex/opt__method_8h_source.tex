@@ -1,0 +1,30 @@
+\hypertarget{opt__method_8h_source}{}\doxysection{opt\+\_\+method.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}vector\_operations.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}opt\_function.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}stop\_crit.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}opt\_area.h"{}}}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classopt__method}{opt\_method}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{13     std::vector<std::vector<double>> \mbox{\hyperlink{classopt__method_a7c1141b9dfd198e6098f470c423a10d8}{x}};}
+\DoxyCodeLine{15     \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} \mbox{\hyperlink{classopt__method_a3f17e6312f613b14398790b6943d036d}{iter}} = 0;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{18     \mbox{\hyperlink{classopt__function}{opt\_function}} *\mbox{\hyperlink{classopt__method_ad096892592a05ce1e27aac1cd3df3aac}{func}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{20     \mbox{\hyperlink{classstop__crit}{stop\_crit}}* \mbox{\hyperlink{classopt__method_ae49efcdc57c66c66c6e465866057b612}{stop}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{22     \mbox{\hyperlink{classopt__area}{opt\_area}}* \mbox{\hyperlink{classopt__method_a491024339172bbca253755f984dc5f14}{area}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{classopt__method}{\string~opt\_method}}();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27     std::vector<std::vector<double>> \mbox{\hyperlink{classopt__method_aa5fb40cc98ed75ab423b55288400740f}{get\_x}}();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{double} \mbox{\hyperlink{classopt__method_af85d4141daa0687ac465a897c2c26efa}{get\_iter}}();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} std::vector<double> \mbox{\hyperlink{classopt__method_abecd5c636249a4ff04fe5cf14d0cd1f8}{calc}}(std::vector<double>) = 0;}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+
+\end{DoxyCode}
