@@ -106,6 +106,7 @@ void ChooseParams::on_plotButton_clicked()
             f_heatmap.push_back(temp);
             cur_l = par.get_lim(0).first;
             cur_h -= step_h;
+            temp.clear();
         }
 
         std::vector<std::pair<int, int>> x_coord{};
@@ -117,9 +118,6 @@ void ChooseParams::on_plotButton_clicked()
         }
 
         hm.setData(f_heatmap, x_coord, x.back());
-
-
-
 
 
     }  catch (const std::exception& e) {

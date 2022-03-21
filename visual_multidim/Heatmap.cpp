@@ -32,7 +32,6 @@ void HeatMap::setData(std::vector<std::vector<double>> data, std::vector<std::pa
             image->setPixel(j, i, value);
         }
     };
-
     resize(width, height);
 
     mainFrame = QPixmap::fromImage(*image);
