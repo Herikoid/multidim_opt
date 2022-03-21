@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Multidimensional optimisation: rosenbrok_f.h Source File</title>
+<title>Multidimensional optimisation: sincos_f.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,23 +62,23 @@ $(function() {
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">rosenbrok_f.h</div></div>
+  <div class="headertitle"><div class="title">sincos_f.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;opt_function.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="classrosenbrok__f.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="classrosenbrok__f.html">rosenbrok_f</a> :</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="classsincos__f.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="classsincos__f.html">sincos_f</a> :</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keyword">public</span> <a class="code hl_class" href="classopt__function.html">opt_function</a></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classrosenbrok__f.html#a53c9fd5d1a2be02fa97349d24ad7057b">calc</a>(std::vector&lt;double&gt;) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::vector&lt;double&gt; <a class="code hl_function" href="classrosenbrok__f.html#a8dfcdd840c017815254da8b56a1f7c9a">grad</a>(std::vector&lt;double&gt;) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classsincos__f.html#a45591d6feb7cf80b3028c589e4dc3cb6">calc</a>(std::vector&lt;double&gt;) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::vector&lt;double&gt; <a class="code hl_function" href="classsincos__f.html#a36e05be6e729d417d1b6b5ba055ffc4e">grad</a>(std::vector&lt;double&gt;) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="ttc" id="aclassopt__function_html"><div class="ttname"><a href="classopt__function.html">opt_function</a></div><div class="ttdoc">Абстрактный класс функций для оптимизации</div><div class="ttdef"><b>Definition:</b> opt_function.h:6</div></div>
-<div class="ttc" id="aclassrosenbrok__f_html"><div class="ttname"><a href="classrosenbrok__f.html">rosenbrok_f</a></div><div class="ttdoc">Функция Розенброка</div><div class="ttdef"><b>Definition:</b> rosenbrok_f.h:6</div></div>
-<div class="ttc" id="aclassrosenbrok__f_html_a53c9fd5d1a2be02fa97349d24ad7057b"><div class="ttname"><a href="classrosenbrok__f.html#a53c9fd5d1a2be02fa97349d24ad7057b">rosenbrok_f::calc</a></div><div class="ttdeci">double calc(std::vector&lt; double &gt;) override</div><div class="ttdoc">Вычисление функции в точке</div><div class="ttdef"><b>Definition:</b> rosenbrok_f.cpp:3</div></div>
-<div class="ttc" id="aclassrosenbrok__f_html_a8dfcdd840c017815254da8b56a1f7c9a"><div class="ttname"><a href="classrosenbrok__f.html#a8dfcdd840c017815254da8b56a1f7c9a">rosenbrok_f::grad</a></div><div class="ttdeci">std::vector&lt; double &gt; grad(std::vector&lt; double &gt;) override</div><div class="ttdoc">Взятие градиента в точке</div><div class="ttdef"><b>Definition:</b> rosenbrok_f.cpp:11</div></div>
+<div class="ttc" id="aclasssincos__f_html"><div class="ttname"><a href="classsincos__f.html">sincos_f</a></div><div class="ttdoc">Функция f(x, y) = sin(0.5 * x^2 - 0.25 * y^2 + 3) * cos(2 * x + 1 - e^y)</div><div class="ttdef"><b>Definition:</b> sincos_f.h:6</div></div>
+<div class="ttc" id="aclasssincos__f_html_a36e05be6e729d417d1b6b5ba055ffc4e"><div class="ttname"><a href="classsincos__f.html#a36e05be6e729d417d1b6b5ba055ffc4e">sincos_f::grad</a></div><div class="ttdeci">std::vector&lt; double &gt; grad(std::vector&lt; double &gt;) override</div><div class="ttdoc">Взятие градиента в точке</div><div class="ttdef"><b>Definition:</b> sincos_f.cpp:11</div></div>
+<div class="ttc" id="aclasssincos__f_html_a45591d6feb7cf80b3028c589e4dc3cb6"><div class="ttname"><a href="classsincos__f.html#a45591d6feb7cf80b3028c589e4dc3cb6">sincos_f::calc</a></div><div class="ttdeci">double calc(std::vector&lt; double &gt;) override</div><div class="ttdoc">Вычисление функции в точке</div><div class="ttdef"><b>Definition:</b> sincos_f.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

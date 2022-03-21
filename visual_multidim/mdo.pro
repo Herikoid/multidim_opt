@@ -24,6 +24,7 @@ SOURCES += \
     parallel.cpp \
     random_search.cpp \
     rosenbrok_f.cpp \
+    sincos_f.cpp \
     sq_sum.cpp \
     stop_crit.cpp \
     vector_operations.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     parallel.h \
     random_search.h \
     rosenbrok_f.h \
+    sincos_f.h \
     sq_sum.h \
     stop_crit.h \
     sup_struct.h \

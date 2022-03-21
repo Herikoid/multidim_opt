@@ -14,6 +14,7 @@
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}rosenbrok\_f.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}parallel.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}random\_search.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}sincos\_f.h"{}}}
 \DoxyCodeLine{}
 \DoxyCodeLine{std::mt19937 SingletonGenerator::mersennetwister;}
 \DoxyCodeLine{}
@@ -35,9 +36,10 @@
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 2 for f(x, y, z) = x\string^2 + y\string^2 + z\string^3"{}} << std::endl;}
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 3 for f(x, y, z, t) = x\string^2 + y\string^2 + z\string^3 + t\string^4"{}} << std::endl;}
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 4 for f(x, y) = (1 -\/ x)\string^2 + 100 * (y -\/ x\string^2)\string^2"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 5 for f(x, y) = sin(0.5 * x\string^2 -\/ 0.25 * y\string^2 + 3) * cos(2 * x + 1 -\/ e\string^y)"{}} << std::endl;}
 \DoxyCodeLine{        std::cin >> input1;}
-\DoxyCodeLine{        \textcolor{keywordflow}{if} (input1 < 1 || input1 > 4) \{}
-\DoxyCodeLine{            \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}type form 1 to 3"{}});}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (input1 < 1 || input1 > 5) \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}type form 1 to 5"{}});}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        \textcolor{keywordflow}{switch} (input1)}
 \DoxyCodeLine{        \{}
@@ -50,8 +52,11 @@
 \DoxyCodeLine{        \textcolor{keywordflow}{case} 3:}
 \DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classf__4dim}{f\_4dim}};}
 \DoxyCodeLine{            \textcolor{keywordflow}{break};}
-\DoxyCodeLine{        \textcolor{keywordflow}{default}: }
+\DoxyCodeLine{        \textcolor{keywordflow}{case} 4:}
 \DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classrosenbrok__f}{rosenbrok\_f}};}
+\DoxyCodeLine{            input1 = 1;}
+\DoxyCodeLine{        \textcolor{keywordflow}{default}: }
+\DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classsincos__f}{sincos\_f}};}
 \DoxyCodeLine{            input1 = 1;}
 \DoxyCodeLine{            \textcolor{keywordflow}{break};}
 \DoxyCodeLine{        \}}

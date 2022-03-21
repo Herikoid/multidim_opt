@@ -5,5 +5,5 @@ var searchData=
   ['get_5flim_2',['get_lim',['../classparallel.html#ad23514ae5186c56b140cb76f86c58c89',1,'parallel']]],
   ['get_5fpoint_3',['get_point',['../classparallel.html#a6297e0b009104e908822097c14e8941c',1,'parallel']]],
   ['get_5fx_4',['get_x',['../classopt__method.html#aa5fb40cc98ed75ab423b55288400740f',1,'opt_method']]],
-  ['grad_5',['grad',['../classf__3dim.html#a0535a91d3fa64d1a09675da5f80f10ed',1,'f_3dim::grad()'],['../classf__4dim.html#a0dc37bcce110390133ee451ba4e6c709',1,'f_4dim::grad()'],['../classopt__function.html#a97654a7a0ae385a74be000a90af4839b',1,'opt_function::grad()'],['../classrosenbrok__f.html#a8dfcdd840c017815254da8b56a1f7c9a',1,'rosenbrok_f::grad()'],['../classsq__sum.html#a9b7e0d4acd977b951631856d5c55116a',1,'sq_sum::grad()']]]
+  ['grad_5',['grad',['../classf__3dim.html#a0535a91d3fa64d1a09675da5f80f10ed',1,'f_3dim::grad()'],['../classf__4dim.html#a0dc37bcce110390133ee451ba4e6c709',1,'f_4dim::grad()'],['../classopt__function.html#a97654a7a0ae385a74be000a90af4839b',1,'opt_function::grad()'],['../classrosenbrok__f.html#a8dfcdd840c017815254da8b56a1f7c9a',1,'rosenbrok_f::grad()'],['../classsincos__f.html#a36e05be6e729d417d1b6b5ba055ffc4e',1,'sincos_f::grad()'],['../classsq__sum.html#a9b7e0d4acd977b951631856d5c55116a',1,'sq_sum::grad()']]]
 ];

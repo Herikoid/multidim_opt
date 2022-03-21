@@ -1,7 +1,7 @@
 #pragma once
 #include "opt_function.h"
-/// \brief Функция Розенброка
-class rosenbrok_f :
+/// \brief Функция f(x, y) = sin(0.5 * x^2 - 0.25 * y^2 + 3) * cos(2 * x + 1 - e^y)
+class sincos_f :
     public opt_function
 {
 public:

@@ -78,6 +78,7 @@ $(function() {
 <div class="line"><span class="preprocessor">#include &quot;rosenbrok_f.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;parallel.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;random_search.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;sincos_f.h&quot;</span></div>
 <div class="line"> </div>
 <div class="line">std::mt19937 SingletonGenerator::mersennetwister;</div>
 <div class="line"> </div>
@@ -99,9 +100,10 @@ $(function() {
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;type 2 for f(x, y, z) = x^2 + y^2 + z^3&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;type 3 for f(x, y, z, t) = x^2 + y^2 + z^3 + t^4&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;type 4 for f(x, y) = (1 - x)^2 + 100 * (y - x^2)^2&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;type 5 for f(x, y) = sin(0.5 * x^2 - 0.25 * y^2 + 3) * cos(2 * x + 1 - e^y)&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        std::cin &gt;&gt; input1;</div>
-<div class="line">        <span class="keywordflow">if</span> (input1 &lt; 1 || input1 &gt; 4) {</div>
-<div class="line">            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;type form 1 to 3&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (input1 &lt; 1 || input1 &gt; 5) {</div>
+<div class="line">            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;type form 1 to 5&quot;</span>);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">switch</span> (input1)</div>
 <div class="line">        {</div>
@@ -114,8 +116,11 @@ $(function() {
 <div class="line">        <span class="keywordflow">case</span> 3:</div>
 <div class="line">            f = <span class="keyword">new</span> <a id="_a6" name="_a6"></a><a class="code hl_class" href="classf__4dim.html">f_4dim</a>;</div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">default</span>: </div>
+<div class="line">        <span class="keywordflow">case</span> 4:</div>
 <div class="line">            f = <span class="keyword">new</span> <a id="_a7" name="_a7"></a><a class="code hl_class" href="classrosenbrok__f.html">rosenbrok_f</a>;</div>
+<div class="line">            input1 = 1;</div>
+<div class="line">        <span class="keywordflow">default</span>: </div>
+<div class="line">            f = <span class="keyword">new</span> <a id="_a8" name="_a8"></a><a class="code hl_class" href="classsincos__f.html">sincos_f</a>;</div>
 <div class="line">            input1 = 1;</div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
 <div class="line">        }</div>
@@ -126,7 +131,7 @@ $(function() {
 <div class="line">            std::cin &gt;&gt; left;</div>
 <div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;enter right border: &quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">            std::cin &gt;&gt; right;</div>
-<div class="line">            area.<a id="a8" name="a8"></a><a class="code hl_function" href="classparallel.html#a74f8d62b344022e8c5e4df4f29c9e23a">add_limits</a>(left, right);</div>
+<div class="line">            area.<a id="a9" name="a9"></a><a class="code hl_function" href="classparallel.html#a74f8d62b344022e8c5e4df4f29c9e23a">add_limits</a>(left, right);</div>
 <div class="line">        }</div>
 <div class="line"> </div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Chose method:&quot;</span> &lt;&lt; std::endl;</div>
@@ -137,8 +142,8 @@ $(function() {
 <div class="line">            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;type 1 or 2&quot;</span>);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">if</span> (input == 1) {</div>
-<div class="line">            crit = <span class="keyword">new</span> <a id="_a9" name="_a9"></a><a class="code hl_class" href="classiter__ctrit.html">iter_ctrit</a>;</div>
-<div class="line">            om = <span class="keyword">new</span> <a id="_a10" name="_a10"></a><a class="code hl_class" href="classrandom__search.html">random_search</a>(*f, *crit, area);</div>
+<div class="line">            crit = <span class="keyword">new</span> <a id="_a10" name="_a10"></a><a class="code hl_class" href="classiter__ctrit.html">iter_ctrit</a>;</div>
+<div class="line">            om = <span class="keyword">new</span> <a id="_a11" name="_a11"></a><a class="code hl_class" href="classrandom__search.html">random_search</a>(*f, *crit, area);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> {</div>
 <div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;Chose stop criteria:&quot;</span> &lt;&lt; std::endl;</div>
@@ -152,16 +157,16 @@ $(function() {
 <div class="line">            <span class="keywordflow">switch</span> (input)</div>
 <div class="line">            {</div>
 <div class="line">            <span class="keywordflow">case</span> 1:</div>
-<div class="line">                crit = <span class="keyword">new</span> <a id="_a11" name="_a11"></a><a class="code hl_class" href="classx__crit.html">x_crit</a>;</div>
+<div class="line">                crit = <span class="keyword">new</span> <a id="_a12" name="_a12"></a><a class="code hl_class" href="classx__crit.html">x_crit</a>;</div>
 <div class="line">                <span class="keywordflow">break</span>;</div>
 <div class="line">            <span class="keywordflow">case</span> 2:</div>
-<div class="line">                crit = <span class="keyword">new</span> <a id="_a12" name="_a12"></a><a class="code hl_class" href="classf__crit.html">f_crit</a>;</div>
+<div class="line">                crit = <span class="keyword">new</span> <a id="_a13" name="_a13"></a><a class="code hl_class" href="classf__crit.html">f_crit</a>;</div>
 <div class="line">                <span class="keywordflow">break</span>;</div>
 <div class="line">            <span class="keywordflow">default</span>:</div>
-<div class="line">                crit = <span class="keyword">new</span> <a id="_a13" name="_a13"></a><a class="code hl_class" href="classgrad__crit.html">grad_crit</a>;</div>
+<div class="line">                crit = <span class="keyword">new</span> <a id="_a14" name="_a14"></a><a class="code hl_class" href="classgrad__crit.html">grad_crit</a>;</div>
 <div class="line">                <span class="keywordflow">break</span>;</div>
 <div class="line">            }</div>
-<div class="line">            om = <span class="keyword">new</span> <a id="_a14" name="_a14"></a><a class="code hl_class" href="classfletcher__reeves.html">fletcher_reeves</a>(*f, *crit, area);</div>
+<div class="line">            om = <span class="keyword">new</span> <a id="_a15" name="_a15"></a><a class="code hl_class" href="classfletcher__reeves.html">fletcher_reeves</a>(*f, *crit, area);</div>
 <div class="line">        }</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;enter start point: &quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; input1 + 1; ++i) {</div>
@@ -170,13 +175,13 @@ $(function() {
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line"> </div>
-<div class="line">        res = om-&gt;<a id="a15" name="a15"></a><a class="code hl_function" href="classopt__method.html#abecd5c636249a4ff04fe5cf14d0cd1f8">calc</a>(start);</div>
+<div class="line">        res = om-&gt;<a id="a16" name="a16"></a><a class="code hl_function" href="classopt__method.html#abecd5c636249a4ff04fe5cf14d0cd1f8">calc</a>(start);</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Result:&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;x = (&quot;</span>;</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; res.size() - 1; ++i) {</div>
 <div class="line">            std::cout &lt;&lt; res[i] &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
 <div class="line">        }</div>
-<div class="line">        std::cout &lt;&lt; res.back() &lt;&lt; <span class="stringliteral">&quot;), f(x) = &quot;</span> &lt;&lt; f-&gt;<a id="a16" name="a16"></a><a class="code hl_function" href="classopt__function.html#a000889ff36b53663f2d232e3b328706b">calc</a>(res) &lt;&lt; <span class="stringliteral">&quot;, iter = &quot;</span> &lt;&lt; om-&gt;<a id="a17" name="a17"></a><a class="code hl_function" href="classopt__method.html#af85d4141daa0687ac465a897c2c26efa">get_iter</a>() &lt;&lt; std::endl; </div>
+<div class="line">        std::cout &lt;&lt; res.back() &lt;&lt; <span class="stringliteral">&quot;), f(x) = &quot;</span> &lt;&lt; f-&gt;<a id="a17" name="a17"></a><a class="code hl_function" href="classopt__function.html#a000889ff36b53663f2d232e3b328706b">calc</a>(res) &lt;&lt; <span class="stringliteral">&quot;, iter = &quot;</span> &lt;&lt; om-&gt;<a id="a18" name="a18"></a><a class="code hl_function" href="classopt__method.html#af85d4141daa0687ac465a897c2c26efa">get_iter</a>() &lt;&lt; std::endl; </div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e)</div>
 <div class="line">    {</div>
@@ -204,6 +209,7 @@ $(function() {
 <div class="ttc" id="aclassparallel_html_a74f8d62b344022e8c5e4df4f29c9e23a"><div class="ttname"><a href="classparallel.html#a74f8d62b344022e8c5e4df4f29c9e23a">parallel::add_limits</a></div><div class="ttdeci">void add_limits(double, double)</div><div class="ttdoc">Добавить границу</div><div class="ttdef"><b>Definition:</b> parallel.cpp:23</div></div>
 <div class="ttc" id="aclassrandom__search_html"><div class="ttname"><a href="classrandom__search.html">random_search</a></div><div class="ttdoc">Метод оптимизации случайный поиск</div><div class="ttdef"><b>Definition:</b> random_search.h:7</div></div>
 <div class="ttc" id="aclassrosenbrok__f_html"><div class="ttname"><a href="classrosenbrok__f.html">rosenbrok_f</a></div><div class="ttdoc">Функция Розенброка</div><div class="ttdef"><b>Definition:</b> rosenbrok_f.h:6</div></div>
+<div class="ttc" id="aclasssincos__f_html"><div class="ttname"><a href="classsincos__f.html">sincos_f</a></div><div class="ttdoc">Функция f(x, y) = sin(0.5 * x^2 - 0.25 * y^2 + 3) * cos(2 * x + 1 - e^y)</div><div class="ttdef"><b>Definition:</b> sincos_f.h:6</div></div>
 <div class="ttc" id="aclasssq__sum_html"><div class="ttname"><a href="classsq__sum.html">sq_sum</a></div><div class="ttdoc">Функция f(x, y, z, t) = x^2 + y^2.</div><div class="ttdef"><b>Definition:</b> sq_sum.h:6</div></div>
 <div class="ttc" id="aclassstop__crit_html"><div class="ttname"><a href="classstop__crit.html">stop_crit</a></div><div class="ttdoc">Абстрактный класс криетрия остановки</div><div class="ttdef"><b>Definition:</b> stop_crit.h:6</div></div>
 <div class="ttc" id="aclassx__crit_html"><div class="ttname"><a href="classx__crit.html">x_crit</a></div><div class="ttdoc">Критерий остановки вида |x_i - x_{i - 1}| &lt; eps.</div><div class="ttdef"><b>Definition:</b> x_crit.h:6</div></div>
