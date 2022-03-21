@@ -151,6 +151,7 @@
     <ClCompile Include="opt_method.cpp" />
     <ClCompile Include="parallel.cpp" />
     <ClCompile Include="random_search.cpp" />
+    <ClCompile Include="rosenbrok_f.cpp" />
     <ClCompile Include="SingletonGenerator.cpp" />
     <ClCompile Include="sq_sum.cpp" />
     <ClCompile Include="stop_crit.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="opt_method.h" />
     <ClInclude Include="parallel.h" />
     <ClInclude Include="random_search.h" />
+    <ClInclude Include="rosenbrok_f.h" />
     <ClInclude Include="SingletonGenerator.h" />
     <ClInclude Include="sq_sum.h" />
     <ClInclude Include="stop_crit.h" />

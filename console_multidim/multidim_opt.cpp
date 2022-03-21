@@ -8,6 +8,7 @@
 #include "sq_sum.h"
 #include "f_3dim.h"
 #include "f_4dim.h"
+#include "rosenbrok_f.h"
 #include "parallel.h"
 #include "random_search.h"
 
@@ -31,8 +32,9 @@ int main()
         std::cout << "type 1 for f(x, y) = x^2 + y^2" << std::endl;
         std::cout << "type 2 for f(x, y, z) = x^2 + y^2 + z^3" << std::endl;
         std::cout << "type 3 for f(x, y, z, t) = x^2 + y^2 + z^3 + t^4" << std::endl;
+        std::cout << "type 4 for f(x, y) = (1 - x)^2 + 100 * (y - x^2)^2" << std::endl;
         std::cin >> input1;
-        if (input1 < 1 || input1 > 3) {
+        if (input1 < 1 || input1 > 4) {
             throw std::invalid_argument("type form 1 to 3");
         }
         switch (input1)
@@ -43,8 +45,12 @@ int main()
         case 2:
             f = new f_3dim;
             break;
-        default: 
+        case 3:
             f = new f_4dim;
+            break;
+        default: 
+            f = new rosenbrok_f;
+            input1 = 1;
             break;
         }
 
@@ -104,7 +110,7 @@ int main()
         for (int i = 0; i < res.size() - 1; ++i) {
             std::cout << res[i] << ", ";
         }
-        std::cout << res.back() << "), iter = " << om->get_iter() << std::endl; 
+        std::cout << res.back() << "), f(x) = " << f->calc(res) << ", iter = " << om->get_iter() << std::endl; 
     }
     catch (const std::exception& e)
     {

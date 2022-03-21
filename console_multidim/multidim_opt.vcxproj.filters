@@ -66,6 +66,9 @@
     <ClCompile Include="f_4dim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rosenbrok_f.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opt_method.h">
@@ -117,6 +120,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="f_4dim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rosenbrok_f.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

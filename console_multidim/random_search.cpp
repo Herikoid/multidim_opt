@@ -24,13 +24,15 @@ std::vector<double> random_search::calc(std::vector<double> start)
     x.push_back(start);
     iter = 0;
 
-    double alpha = 1;
+    double start_alpha = 1;
+    double alpha = start_alpha;
     sup_struct ss;
     std::vector<double> x_p{};
 
     while (stop->check(ss)) {
         if (getu01_sing() < p) {
             x_p = par->get_point();
+            alpha = start_alpha;
         }
         else {
             x_p = cross_area(*par, x.back(), (alpha /= 1.5) * delta).get_point();
