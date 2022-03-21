@@ -64,9 +64,7 @@ void ChooseParams::on_plotButton_clicked()
         if (ui->rosenbrokRB->isChecked()){
             f = new rosenbrok_f;
         }
-        if (ui->sincosRB->isChecked()){
-            f = new sincos_f;
-        }
+
 
         if (ui->rsmethodRB->isChecked()) {
              sc = new iter_ctrit;

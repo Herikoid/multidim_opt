@@ -16,7 +16,7 @@ std::vector<double> sincos_f::grad(std::vector<double> x)
     return std::vector<double> {
         x[0] * cos(2 * x[0] - exp(x[1]) + 1)* cos(0.5 * pow(x[0], 2) - 0.25 * pow(x[1], 2) + 3) -
         2 * sin(2 * x[0] - exp(x[1]) + 1) * sin(0.5 * pow(x[0], 2) - 0.25 * pow(x[1], 2) + 3),
-        exp(x[1]) * sin(2 * x[0] - exp(x[1]) + 1) * sin(0.5 * pow(x[0], 2) - 0.25 * pow(x[1], 2) + 3) - 
+        exp(x[1]) * sin(2 * x[0] - exp(x[1]) + 1) * sin(0.5 * pow(x[0], 2) - 0.25 * pow(x[1], 2) + 3) -
         0.5 * x[1] * exp(x[1]) * cos(2 * x[0] - exp(x[1]) + 1) * cos(0.5 * pow(x[0], 2) - 0.25 * pow(x[1], 2) + 3)
     };
 }

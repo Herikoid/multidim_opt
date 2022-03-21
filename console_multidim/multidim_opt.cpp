@@ -34,10 +34,9 @@ int main()
         std::cout << "type 2 for f(x, y, z) = x^2 + y^2 + z^3" << std::endl;
         std::cout << "type 3 for f(x, y, z, t) = x^2 + y^2 + z^3 + t^4" << std::endl;
         std::cout << "type 4 for f(x, y) = (1 - x)^2 + 100 * (y - x^2)^2" << std::endl;
-        std::cout << "type 5 for f(x, y) = sin(0.5 * x^2 - 0.25 * y^2 + 3) * cos(2 * x + 1 - e^y)" << std::endl;
         std::cin >> input1;
-        if (input1 < 1 || input1 > 5) {
-            throw std::invalid_argument("type form 1 to 5");
+        if (input1 < 1 || input1 > 4) {
+            throw std::invalid_argument("type form 1 to 4");
         }
         switch (input1)
         {
@@ -55,8 +54,6 @@ int main()
             input1 = 1;
             break;
         default:
-            f = new sincos_f;
-            input1 = 1;
             break;
         }
 
