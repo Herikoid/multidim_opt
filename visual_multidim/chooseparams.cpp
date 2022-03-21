@@ -28,6 +28,10 @@ ChooseParams::ChooseParams(QWidget *parent)
     ui->right1DSB->setMinimum(-INFINITY);
     ui->right2DSB->setMaximum(INFINITY);
     ui->right2DSB->setMinimum(-INFINITY);
+    ui->xstartDSB->setMaximum(INFINITY);
+    ui->xstartDSB->setMinimum(-INFINITY);
+    ui->ystartDSB->setMaximum(INFINITY);
+    ui->ystartDSB->setMinimum(-INFINITY);
 
 }
 
