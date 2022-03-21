@@ -12,11 +12,11 @@ double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1
         li = (2 * left + right) / 3;
         ri = (2 * right + left) / 3;
 
-        if (func->calc(x[iter] + li * p) < func->calc(x[iter] + ri * p)) {
-            right = ri;
+        if (func->calc(x[iter] + li * p) > func->calc(x[iter] + ri * p) && area->in_area(x[iter] + ri * p)) {
+            left = li;
         }
         else {
-            left = li;
+            right = ri;
         }
 
         ++i;
@@ -59,10 +59,12 @@ std::vector<double> fletcher_reeves::calc(std::vector<double> start)
         if (!area->in_area(x[iter])) {
             std::pair<std::vector<double>, std::vector<bool>> mask = area->corret_arg(x[iter]);
             for (int i = 0; i < mask.first.size(); ++i) {
+                std::cout << x[iter][i] << " ";
                 if (mask.second[i]) {
                     x[iter][i] = mask.first[i];
                 }
             }
+            std::cout << std::endl;
             return x[iter];
         }
 
