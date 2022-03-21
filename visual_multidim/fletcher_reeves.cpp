@@ -1,8 +1,8 @@
 #include "fletcher_reeves.h"
 
-double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1e-5, int maxiter = 1000, double eps_div = 1e-3)
+double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1e-6, int maxiter = 1000, double eps_div = 1e-4)
 {
-    std::vector<double> optim_list;
+    double optim = a;
     for (double cur_a = a; cur_a < b; cur_a += eps_div) {
         int i = 0;
         double left = cur_a;
@@ -24,15 +24,12 @@ double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1
             ++i;
         }
 
-        optim_list.push_back((left + right) / 2);
-    }
-    double best = optim_list[0];
-    for (double optim : optim_list) {
-        if (func->calc(x[iter] + best * p) > func->calc(x[iter] + optim * p) && area->in_area(x[iter] + optim * p)) {
-            best = optim;
+        if (func->calc(x[iter] + optim * p) > func->calc(x[iter] + ((left + right) / 2) * p) ) {
+            optim = (left + right) / 2;
         }
+
     }
-    return best;
+    return optim;
 }
 
 fletcher_reeves::fletcher_reeves(opt_function& f, stop_crit& s, opt_area& a)
