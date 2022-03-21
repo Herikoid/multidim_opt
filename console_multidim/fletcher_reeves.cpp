@@ -39,8 +39,9 @@ std::vector<double> fletcher_reeves::calc(std::vector<double> start)
     }
 
     x.clear();
-    x.push_back(start);
+    x.push_back(start); 
     p = (-1) * func->grad(x[0]);
+    
     iter = 0;
 
     double alpha, beta;
@@ -63,7 +64,6 @@ std::vector<double> fletcher_reeves::calc(std::vector<double> start)
                     x[iter][i] = mask.first[i];
                 }
             }
-            std::cout << std::endl;
             return x[iter];
         }
 

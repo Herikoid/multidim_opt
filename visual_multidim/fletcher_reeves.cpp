@@ -8,7 +8,7 @@ double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1
     double li = a;
     double ri = b;
 
-    while (abs(left - right) > eps && i < maxiter) {
+    while (std::abs(left - right) > eps && i < maxiter) {
         li = (2 * left + right) / 3;
         ri = (2 * right + left) / 3;
 
@@ -63,7 +63,6 @@ std::vector<double> fletcher_reeves::calc(std::vector<double> start)
                     x[iter][i] = mask.first[i];
                 }
             }
-            std::cout << std::endl;
             return x[iter];
         }
 
