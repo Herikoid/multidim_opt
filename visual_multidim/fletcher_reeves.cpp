@@ -59,7 +59,6 @@ std::vector<double> fletcher_reeves::calc(std::vector<double> start)
         if (!area->in_area(x[iter])) {
             std::pair<std::vector<double>, std::vector<bool>> mask = area->corret_arg(x[iter]);
             for (int i = 0; i < mask.first.size(); ++i) {
-                std::cout << x[iter][i] << " ";
                 if (mask.second[i]) {
                     x[iter][i] = mask.first[i];
                 }
