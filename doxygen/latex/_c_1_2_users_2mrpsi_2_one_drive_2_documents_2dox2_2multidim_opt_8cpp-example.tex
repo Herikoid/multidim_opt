@@ -11,6 +11,7 @@
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}sq\_sum.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}f\_3dim.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}f\_4dim.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}rosenbrok\_f.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}parallel.h"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include "{}random\_search.h"{}}}
 \DoxyCodeLine{}
@@ -33,8 +34,9 @@
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 1 for f(x, y) = x\string^2 + y\string^2"{}} << std::endl;}
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 2 for f(x, y, z) = x\string^2 + y\string^2 + z\string^3"{}} << std::endl;}
 \DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 3 for f(x, y, z, t) = x\string^2 + y\string^2 + z\string^3 + t\string^4"{}} << std::endl;}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}type 4 for f(x, y) = (1 -\/ x)\string^2 + 100 * (y -\/ x\string^2)\string^2"{}} << std::endl;}
 \DoxyCodeLine{        std::cin >> input1;}
-\DoxyCodeLine{        \textcolor{keywordflow}{if} (input1 < 1 || input1 > 3) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (input1 < 1 || input1 > 4) \{}
 \DoxyCodeLine{            \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}type form 1 to 3"{}});}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        \textcolor{keywordflow}{switch} (input1)}
@@ -45,8 +47,12 @@
 \DoxyCodeLine{        \textcolor{keywordflow}{case} 2:}
 \DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classf__3dim}{f\_3dim}};}
 \DoxyCodeLine{            \textcolor{keywordflow}{break};}
-\DoxyCodeLine{        \textcolor{keywordflow}{default}: }
+\DoxyCodeLine{        \textcolor{keywordflow}{case} 3:}
 \DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classf__4dim}{f\_4dim}};}
+\DoxyCodeLine{            \textcolor{keywordflow}{break};}
+\DoxyCodeLine{        \textcolor{keywordflow}{default}: }
+\DoxyCodeLine{            f = \textcolor{keyword}{new} \mbox{\hyperlink{classrosenbrok__f}{rosenbrok\_f}};}
+\DoxyCodeLine{            input1 = 1;}
 \DoxyCodeLine{            \textcolor{keywordflow}{break};}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{}
@@ -106,7 +112,7 @@
 \DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < res.size() -\/ 1; ++i) \{}
 \DoxyCodeLine{            std::cout << res[i] << \textcolor{stringliteral}{"{}, "{}};}
 \DoxyCodeLine{        \}}
-\DoxyCodeLine{        std::cout << res.back() << \textcolor{stringliteral}{"{}), iter = "{}} << om-\/>\mbox{\hyperlink{classopt__method_af85d4141daa0687ac465a897c2c26efa}{get\_iter}}() << std::endl; }
+\DoxyCodeLine{        std::cout << res.back() << \textcolor{stringliteral}{"{}), f(x) = "{}} << f-\/>\mbox{\hyperlink{classopt__function_a000889ff36b53663f2d232e3b328706b}{calc}}(res) << \textcolor{stringliteral}{"{}, iter = "{}} << om-\/>\mbox{\hyperlink{classopt__method_af85d4141daa0687ac465a897c2c26efa}{get\_iter}}() << std::endl; }
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception\& e)}
 \DoxyCodeLine{    \{}
