@@ -16,6 +16,7 @@
 #include "f_4dim.h"
 #include "parallel.h"
 #include "random_search.h"
+#include "rosenbrok_f.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ChooseParams; }

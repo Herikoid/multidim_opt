@@ -45,8 +45,6 @@ void ChooseParams::on_plotButton_clicked()
     stop_crit* sc = nullptr;
 
     try {
-        f = new sq_sum;
-
         par.clear_limits();
         left_1 = ui->left1DSB->value();
         left_2 = ui->left2DSB->value();
@@ -54,6 +52,12 @@ void ChooseParams::on_plotButton_clicked()
         right_2 = ui->right2DSB->value();
         par.add_limits(left_1, right_1);
         par.add_limits(left_2, right_2);
+
+        if (ui->sqsmRB->isChecked()) {
+            f = new sq_sum;
+        } else {
+            f = new rosenbrok_f;
+        }
 
         if (ui->rsmethodRB->isChecked()) {
              sc = new iter_ctrit;

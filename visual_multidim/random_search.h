@@ -13,7 +13,7 @@ private:
     /// область определния - праллепипед
     parallel* par = nullptr;
 public:
-    random_search(opt_function& f, stop_crit& s, parallel& a, double delta = 1e-7, double p_ = 0.5);
+    random_search(opt_function& f, stop_crit& s, parallel& a, double delta = 1e-5, double p_ = 0.5);
     virtual std::vector<double> calc(std::vector<double>) override;
 
     ~random_search();
