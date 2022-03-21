@@ -53,7 +53,8 @@ int main()
         case 4:
             f = new rosenbrok_f;
             input1 = 1;
-        default: 
+            break;
+        default:
             f = new sincos_f;
             input1 = 1;
             break;
@@ -85,6 +86,8 @@ int main()
             std::cout << "type 2 for f criteria" << std::endl;
             std::cout << "type 3 for gradient criteria" << std::endl;
             std::cin >> input;
+            
+
             if (input < 1 || input > 3) {
                 throw std::invalid_argument("type form 1 to 3");
             }
@@ -100,6 +103,19 @@ int main()
                 crit = new grad_crit;
                 break;
             }
+            std::cout << "Input eps, type 0 for default" << std::endl;
+            double eps;
+            std::cin >> eps;
+            if (eps) {
+                crit->set_eps(eps);
+            }
+            std::cout << "Input maxiter, type 0 for default" << std::endl;
+            long int maxiter;
+            std::cin >> maxiter;
+            if (maxiter) {
+                crit->set_maxiter(maxiter);
+            }
+
             om = new fletcher_reeves(*f, *crit, area);
         }
         std::cout << "enter start point: " << std::endl;
@@ -107,7 +123,7 @@ int main()
             std::cin >> left;
             start.push_back(left);
         }
-        
+
 
         res = om->calc(start);
         std::cout << "Result:" << std::endl;
@@ -115,7 +131,7 @@ int main()
         for (int i = 0; i < res.size() - 1; ++i) {
             std::cout << res[i] << ", ";
         }
-        std::cout << res.back() << "), f(x) = " << f->calc(res) << ", iter = " << om->get_iter() << std::endl; 
+        std::cout << res.back() << "), f(x) = " << f->calc(res) << ", iter = " << om->get_iter() << std::endl;
     }
     catch (const std::exception& e)
     {
