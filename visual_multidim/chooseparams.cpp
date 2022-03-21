@@ -14,12 +14,6 @@ ChooseParams::ChooseParams(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->left1DSB->setValue(left_1);
-    ui->left2DSB->setValue(left_2);
-    ui->right1DSB->setValue(right_1);
-    ui->right2DSB->setValue(right_2);
-    ui->xstartDSB->setValue(start_x);
-    ui->ystartDSB->setValue(start_y);
     ui->left1DSB->setMaximum(INFINITY);
     ui->left1DSB->setMinimum(-INFINITY);
     ui->left2DSB->setMaximum(INFINITY);
@@ -32,6 +26,13 @@ ChooseParams::ChooseParams(QWidget *parent)
     ui->xstartDSB->setMinimum(-INFINITY);
     ui->ystartDSB->setMaximum(INFINITY);
     ui->ystartDSB->setMinimum(-INFINITY);
+
+    ui->left1DSB->setValue(left_1);
+    ui->left2DSB->setValue(left_2);
+    ui->right1DSB->setValue(right_1);
+    ui->right2DSB->setValue(right_2);
+    ui->xstartDSB->setValue(start_x);
+    ui->ystartDSB->setValue(start_y);
 
 }
 
@@ -107,15 +108,15 @@ void ChooseParams::on_plotButton_clicked()
             cur_h -= step_h;
         }
 
-        std::vector<std::pair<int, int>> f_coord{};
+        std::vector<std::pair<int, int>> x_coord{};
         for (std::vector<double> v:x) {
-            f_coord.push_back(std::pair<int, int>{
+            x_coord.push_back(std::pair<int, int>{
                                   (int) (length * (v[0] - par.get_lim(0).first) / (par.get_lim(0).second - par.get_lim(0).first)),
                                   height - (int) (height * (v[1] - par.get_lim(1).first) / (par.get_lim(1).second - par.get_lim(1).first))
                               });
         }
 
-        hm.setData(f_heatmap, f_coord, x.back());
+        hm.setData(f_heatmap, x_coord, x.back());
 
 
 

@@ -8,7 +8,7 @@ protected:
 	/// максимальное число итераций алгоритма
 	long int max_iter = 10000;
 	/// Точность
-	double eps = 1e-3;
+    double eps = 1e-5;
 public:
 	/// \brief Задать максимальное число итераций
 	void set_maxiter(long int);

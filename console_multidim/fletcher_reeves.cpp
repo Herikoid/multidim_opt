@@ -1,28 +1,38 @@
 #include "fletcher_reeves.h"
 
-double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1e-5, int maxiter = 1000)
+double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1e-5, int maxiter = 1000, double eps_div = 1e-4)
 {
-    int i = 0;
-    double left = a;
-    double right = b;
-    double li = a;
-    double ri = b;
+    std::vector<double> optim_list;
+    for (double cur_a = a; cur_a < b; cur_a += eps_div) {
+        int i = 0;
+        double left = cur_a;
+        double right = cur_a + eps_div;
+        double li = cur_a;
+        double ri = cur_a + eps_div;
 
-    while (abs(left - right) > eps && i < maxiter) {
-        li = (2 * left + right) / 3;
-        ri = (2 * right + left) / 3;
+        while (abs(left - right) > eps && i < maxiter) {
+            li = (2 * left + right) / 3;
+            ri = (2 * right + left) / 3;
 
-        if (func->calc(x[iter] + li * p) > func->calc(x[iter] + ri * p) && area->in_area(x[iter] + ri * p)) {
-            left = li;
+            if (func->calc(x[iter] + li * p) > func->calc(x[iter] + ri * p) && area->in_area(x[iter] + ri * p)) {
+                left = li;
+            }
+            else {
+                right = ri;
+            }
+
+            ++i;
         }
-        else {
-            right = ri;
-        }
 
-        ++i;
+        optim_list.push_back((left + right) / 2);
     }
-
-    return (left + right) / 2;
+    double best = optim_list[0];
+    for (double optim : optim_list) {
+        if (func->calc(x[iter] + best * p) > func->calc(x[iter] + optim * p) && area->in_area(x[iter] + optim * p)) {
+            best = optim;
+        }
+    }
+    return best;
 }
 
 fletcher_reeves::fletcher_reeves(opt_function& f, stop_crit& s, opt_area& a)
