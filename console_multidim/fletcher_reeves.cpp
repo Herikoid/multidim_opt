@@ -1,6 +1,6 @@
 #include "fletcher_reeves.h"
 
-double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1e-6, int maxiter = 1000, double eps_div = 1e-4)
+double fletcher_reeves::one_dim_optim(double a = 0, double b = 1, double eps = 1e-6, int maxiter = 1000, double eps_div = 1e-1)
 {
     double optim = a;
     for (double cur_a = a; cur_a < b; cur_a += eps_div) {

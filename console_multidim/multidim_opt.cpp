@@ -74,8 +74,14 @@ int main()
             throw std::invalid_argument("type 1 or 2");
         }
         if (input == 1) {
+            double p, delta;
+            std::cout << "Input p" << std::endl;
+            std::cin >> p;
+            std::cout << "Input delta" << std::endl;
+            std::cin >> delta;
+
             crit = new iter_ctrit;
-            om = new random_search(*f, *crit, area);
+            om = new random_search(*f, *crit, area, delta, p);
         }
         else {
             std::cout << "Chose stop criteria:" << std::endl;

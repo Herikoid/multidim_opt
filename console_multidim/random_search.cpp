@@ -5,6 +5,15 @@ random_search::random_search(opt_function& f, stop_crit& s, parallel& a, double 
     func = &f;
     stop = &s;
     par = &a;
+
+    if (p_ < 0 || p_ > 1) {
+        throw std::invalid_argument("p must be from 0 to 1");
+    }
+
+    if (delta < 0) {
+        throw std::invalid_argument("delta must be positive");
+    }
+
     delta = d;
     p = p_;
 }
