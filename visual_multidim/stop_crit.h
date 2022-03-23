@@ -16,5 +16,7 @@ public:
 	void set_eps(double);
 	/// \brief Проверить, удовлетворяет ли текущий шаг алгоритма критерию
 	virtual bool check(sup_struct&) = 0;
+
+    virtual ~stop_crit() {};
 };
 

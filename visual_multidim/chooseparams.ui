@@ -233,65 +233,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="groupBox_4">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>330</y>
-     <width>181</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Start point</string>
-   </property>
-   <widget class="QDoubleSpinBox" name="ystartDSB">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>100</y>
-      <width>67</width>
-      <height>29</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>40</y>
-      <width>16</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>x:</string>
-    </property>
-   </widget>
-   <widget class="QDoubleSpinBox" name="xstartDSB">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>40</y>
-      <width>67</width>
-      <height>29</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>100</y>
-      <width>16</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>y:</string>
-    </property>
-   </widget>
-  </widget>
   <widget class="QPushButton" name="plotButton">
    <property name="geometry">
     <rect>

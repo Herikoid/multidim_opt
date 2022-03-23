@@ -26,6 +26,8 @@ public:
 
     bool in_area(std::vector<double>) override;
     std::pair<std::vector<double>, std::vector<bool>> corret_arg(std::vector<double>) override;
+
+    virtual ~parallel() {};
 };
 
 /// \brief Пересечение области с чебышёвской окрестностью точки

@@ -22,32 +22,28 @@ ChooseParams::ChooseParams(QWidget *parent)
     ui->right1DSB->setMinimum(-INFINITY);
     ui->right2DSB->setMaximum(INFINITY);
     ui->right2DSB->setMinimum(-INFINITY);
-    ui->xstartDSB->setMaximum(INFINITY);
-    ui->xstartDSB->setMinimum(-INFINITY);
-    ui->ystartDSB->setMaximum(INFINITY);
-    ui->ystartDSB->setMinimum(-INFINITY);
 
     ui->left1DSB->setValue(left_1);
     ui->left2DSB->setValue(left_2);
     ui->right1DSB->setValue(right_1);
     ui->right2DSB->setValue(right_2);
-    ui->xstartDSB->setValue(start_x);
-    ui->ystartDSB->setValue(start_y);
 
 }
 
 ChooseParams::~ChooseParams()
 {
     delete ui;
+    delete sc;
+    delete f;
+    delete om;
 }
 
 
 void ChooseParams::on_plotButton_clicked()
 {
-    parallel par;
-    opt_function* f = nullptr;
-    opt_method* om = nullptr;
-    stop_crit* sc = nullptr;
+    delete sc;
+    delete f;
+    delete om;
 
     try {
         par.clear_limits();
@@ -82,12 +78,7 @@ void ChooseParams::on_plotButton_clicked()
             om = new fletcher_reeves(*f, *sc, par);
         }
 
-        start_x = ui->xstartDSB->value();
-        start_y = ui->ystartDSB->value();
 
-        om->calc(std::vector<double> {start_x, start_y});
-
-        std::vector<std::vector<double>> x = om->get_x();
 
         int length = 500, height = 500;
         std::vector<std::vector<double>> f_heatmap {};
@@ -107,23 +98,13 @@ void ChooseParams::on_plotButton_clicked()
             temp.clear();
         }
 
-        std::vector<std::pair<int, int>> x_coord{};
-        for (std::vector<double> v:x) {
-            x_coord.push_back(std::pair<int, int>{
-                                  (int) (length * (v[0] - par.get_lim(0).first) / (par.get_lim(0).second - par.get_lim(0).first)),
-                                  height - (int) (height * (v[1] - par.get_lim(1).first) / (par.get_lim(1).second - par.get_lim(1).first))
-                              });
-        }
-
-        hm.setData(f_heatmap, x_coord, x.back());
+        hm.setData(f_heatmap, om, par);
 
 
     }  catch (const std::exception& e) {
         QMessageBox::warning(this, "Exception", e.what());
     }
-    delete f;
-    delete om;
-    delete sc;
+
 }
 
 

@@ -21,7 +21,7 @@ protected:
 	/// область определения
 	opt_area* area = nullptr;
 public:
-	~opt_method();
+    virtual ~opt_method();
 
 	/// \brief Получить x
 	std::vector<std::vector<double>> get_x();

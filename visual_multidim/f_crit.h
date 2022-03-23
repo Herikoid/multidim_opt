@@ -6,5 +6,7 @@ class f_crit :
 {
 public:
     bool check(sup_struct&) override;
+
+    virtual ~f_crit() {};
 };
 

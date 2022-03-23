@@ -8,5 +8,6 @@ public:
     double calc(std::vector<double>) override;
     std::vector<double> grad(std::vector<double>) override;
 
+    virtual ~rosenbrok_f() {};
 };
 

@@ -13,5 +13,7 @@ private:
 public:
     fletcher_reeves(opt_function&, stop_crit&, opt_area&);
     virtual std::vector<double> calc(std::vector<double>) override;
+
+    virtual ~fletcher_reeves() {};
 };
 

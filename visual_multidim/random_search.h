@@ -16,6 +16,6 @@ public:
     random_search(opt_function& f, stop_crit& s, parallel& a, double delta = 0.1, double p_ = 0.5);
     virtual std::vector<double> calc(std::vector<double>) override;
 
-    ~random_search();
+    virtual ~random_search();
 };
 

@@ -11,5 +11,7 @@ public:
     /// \brief Задать число итераций
     void set_dist(int);
     bool check(sup_struct&) override;
+
+    virtual ~iter_ctrit() {};
 };
 

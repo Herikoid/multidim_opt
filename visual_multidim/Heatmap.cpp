@@ -1,17 +1,21 @@
 #include "Heatmap.h"
+#include <iostream>
 
 HeatMap::HeatMap() {
 
 };
 
-HeatMap::HeatMap(std::vector<std::vector<double>> data, std::vector<std::pair<int, int>> x, std::vector<double> res)
+HeatMap::HeatMap(std::vector<std::vector<double>> data, opt_method* m, parallel p)
 {
-    setData(data, x, res);
+    setData(data, m, p);
 };
 
 
 
-void HeatMap::setData(std::vector<std::vector<double>> data, std::vector<std::pair<int, int>> x, std::vector<double> res){
+void HeatMap::setData(std::vector<std::vector<double>> data, opt_method* m, parallel p_){
+    om = m;
+    par = p_;
+
     height = data.size();
     width = data[0].size();
 
@@ -35,25 +39,6 @@ void HeatMap::setData(std::vector<std::vector<double>> data, std::vector<std::pa
     resize(width, height);
 
     mainFrame = QPixmap::fromImage(*image);
-
-    QPainter p(&mainFrame);
-    p.setPen(Qt::red);
-
-    for (int i = 1; i < x.size(); ++i) {
-        p.drawLine(x[i - 1].first, x[i - 1].second, x[i].first, x[i].second);
-    }
-    p.setPen(Qt::blue);
-    p.setBrush(Qt::blue);
-    p.drawEllipse(QPointF(x.back().first, x.back().second), 3, 3);
-
-    QFont font = p.font();
-    font.setPointSize(font.pointSize() * 2);
-    p.setFont(font);
-
-    p.drawText(0, 20, ("x = (" + std::to_string(res[0]) + ", " + std::to_string(res[1]) + ")").c_str());
-
-    p.end();
-
 
     this->setPixmap(mainFrame);
 
@@ -79,6 +64,47 @@ double HeatMap::minimum(std::vector<std::vector<double>> data){
         }
     };
     return min;
+}
+
+void HeatMap::mousePressEvent(QMouseEvent *event)
+{
+
+    double start_x = event->position().x() * (par.get_lim(0).second - par.get_lim(0).first) / width + par.get_lim(0).first;
+    double start_y = (height - event->position().y()) * (par.get_lim(1).second - par.get_lim(1).first) / height + par.get_lim(1).first;
+
+    om->calc(std::vector<double> {start_x, start_y});
+    std::vector<std::vector<double>> x = om->get_x();
+
+    std::vector<std::pair<int, int>> x_coord{};
+    for (std::vector<double> v:x) {
+        x_coord.push_back(std::pair<int, int>{
+                              (int) (width * (v[0] - par.get_lim(0).first) / (par.get_lim(0).second - par.get_lim(0).first)),
+                              height - (int) (height * (v[1] - par.get_lim(1).first) / (par.get_lim(1).second - par.get_lim(1).first))
+                          });
+    }
+
+    mainFrame = QPixmap::fromImage(*image);
+    QPainter p(&mainFrame);
+    p.setPen(Qt::red);
+
+    for (int i = 1; i < x.size(); ++i) {
+        p.drawLine(x_coord[i - 1].first, x_coord[i - 1].second, x_coord[i].first, x_coord[i].second);
+    }
+    p.setPen(Qt::blue);
+    p.setBrush(Qt::blue);
+    p.drawEllipse(QPointF(x_coord.back().first, x_coord.back().second), 3, 3);
+
+    QFont font = p.font();
+    font.setPointSize(font.pointSize() * 2);
+    p.setFont(font);
+
+    p.drawText(0, 20, ("x = (" + std::to_string(x.back()[0]) + ", " + std::to_string(x.back()[1]) + ")").c_str());
+
+    p.end();
+
+    this->setPixmap(mainFrame);
+
+    this->show();
 }
 
 HeatMap::~HeatMap()

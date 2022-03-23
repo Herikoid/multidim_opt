@@ -15,5 +15,7 @@ public:
 	virtual std::vector<double> grad(std::vector<double>) = 0;
 	/// Вычисление функции в точке
 	double operator()(std::vector<double>);
+
+    virtual ~opt_function() {};
 };
 

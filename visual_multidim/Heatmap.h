@@ -4,14 +4,17 @@
 #include <QImage>
 #include <QPixmap>
 #include <QLabel>
-#include <qpainter.h>
-
+#include <QMouseEvent>
+#include <QPainter>
+#include "fletcher_reeves.h"
+#include "random_search.h"
+#include "parallel.h"
 
 class HeatMap : public QLabel {
 public:
     HeatMap();
-    HeatMap(std::vector<std::vector<double>> data, std::vector<std::pair<int, int>> x, std::vector<double> res);
-    void setData(std::vector<std::vector<double>> data, std::vector<std::pair<int, int>> x, std::vector<double> res);
+    HeatMap(std::vector<std::vector<double>> data, opt_method* m, parallel p);
+    void setData(std::vector<std::vector<double>> data, opt_method* m, parallel p);
 
     ~HeatMap();
 
@@ -22,6 +25,11 @@ private:
     QPixmap mainFrame;
     int width;
     int height;
+
+    opt_method* om;
+    parallel par;
+
+    void mousePressEvent(QMouseEvent* event);
 };
 
 

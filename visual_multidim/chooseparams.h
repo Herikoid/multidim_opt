@@ -39,7 +39,12 @@ private slots:
 
 private:
     Ui::ChooseParams *ui;
-    double left_1 = -5, left_2 = -5, right_1 = 5, right_2 = 5, start_x = 0, start_y = 0;
+    double left_1 = -5, left_2 = -5, right_1 = 5, right_2 = 5;
     HeatMap hm;
+
+    parallel par;
+    opt_function* f = nullptr;
+    opt_method* om = nullptr;
+    stop_crit* sc = nullptr;
 };
 #endif // CHOOSEPARAMS_H

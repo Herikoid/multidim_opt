@@ -9,5 +9,7 @@ class f_4dim :
 public:
     double calc(std::vector<double>) override;
     std::vector<double> grad(std::vector<double>) override;
+
+    virtual ~f_4dim() {};
 };
 

@@ -7,5 +7,7 @@ class f_3dim :
 public:
     double calc(std::vector<double>) override;
     std::vector<double> grad(std::vector<double>) override;
+
+    virtual ~f_3dim() {};
 };
 

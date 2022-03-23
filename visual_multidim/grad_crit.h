@@ -6,4 +6,6 @@ class grad_crit :
 {
 public:
     bool check(sup_struct&) override;
+
+    virtual ~grad_crit() {};
 };
