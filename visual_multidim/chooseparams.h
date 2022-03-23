@@ -18,6 +18,7 @@
 #include "random_search.h"
 #include "rosenbrok_f.h"
 #include "sincos_f.h"
+#include "exp_f.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ChooseParams; }

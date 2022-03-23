@@ -23,6 +23,7 @@ private:
     double minimum(std::vector<std::vector<double>> data);
     QImage* image = nullptr;
     QPixmap mainFrame;
+    QPixmap mainFrame1;
     int width;
     int height;
 

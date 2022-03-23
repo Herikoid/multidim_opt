@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     Heatmap.cpp \
     SingletonGenerator.cpp \
+    exp_f.cpp \
     f_4dim.cpp \
     f_crit.cpp \
     fletcher_reeves.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     Heatmap.h \
     SingletonGenerator.h \
     chooseparams.h \
+    exp_f.h \
     f_3dim.h \
     f_4dim.h \
     f_crit.h \

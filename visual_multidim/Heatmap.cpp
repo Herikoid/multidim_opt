@@ -83,8 +83,8 @@ void HeatMap::mousePressEvent(QMouseEvent *event)
                           });
     }
 
-    mainFrame = QPixmap::fromImage(*image);
-    QPainter p(&mainFrame);
+    mainFrame1 = mainFrame;
+    QPainter p(&mainFrame1);
     p.setPen(Qt::red);
 
     for (int i = 1; i < x.size(); ++i) {
@@ -102,7 +102,7 @@ void HeatMap::mousePressEvent(QMouseEvent *event)
 
     p.end();
 
-    this->setPixmap(mainFrame);
+    this->setPixmap(mainFrame1);
 
     this->show();
 }

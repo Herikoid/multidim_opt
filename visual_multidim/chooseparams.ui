@@ -262,10 +262,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>130</y>
-     <width>171</width>
-     <height>131</height>
+     <x>520</x>
+     <y>120</y>
+     <width>201</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="title">
@@ -274,8 +274,8 @@
    <widget class="QRadioButton" name="sqsmRB">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>60</y>
+      <x>30</x>
+      <y>40</y>
       <width>112</width>
       <height>26</height>
      </rect>
@@ -293,14 +293,46 @@
    <widget class="QRadioButton" name="rosenbrokRB">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>90</y>
+      <x>30</x>
+      <y>70</y>
       <width>112</width>
       <height>26</height>
      </rect>
     </property>
     <property name="text">
      <string>Rosenbrok</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup_3</string>
+    </attribute>
+   </widget>
+   <widget class="QRadioButton" name="sincosRB">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>112</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>sin(x) cos(y)</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup_3</string>
+    </attribute>
+   </widget>
+   <widget class="QRadioButton" name="expRB">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>151</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>exp(-x - y) + x + y</string>
     </property>
     <attribute name="buttonGroup">
      <string notr="true">buttonGroup_3</string>
